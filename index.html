@@ -3,36 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Neon Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="light-mode">
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+        <span id="theme-label">Dark Mode</span>
+    </div>
     <div class="calculator">
-        <div class="display-container">
-            <div class="history" id="history"></div>
-            <div class="display" id="display">0</div>
+        <div class="display">
+            <input type="text" id="result" readonly>
         </div>
         <div class="buttons">
-            <button class="btn clear" onclick="clearDisplay()">AC</button>
-            <button class="btn operator" onclick="appendToDisplay('/')">/</button>
-            <button class="btn operator" onclick="appendToDisplay('*')">×</button>
-            <button class="btn operator" onclick="appendToDisplay('-')">−</button>
-            <button class="btn" onclick="appendToDisplay('7')">7</button>
-            <button class="btn" onclick="appendToDisplay('8')">8</button>
-            <button class="btn" onclick="appendToDisplay('9')">9</button>
-            <button class="btn operator" onclick="appendToDisplay('+')">+</button>
-            <button class="btn" onclick="appendToDisplay('4')">4</button>
-            <button class="btn" onclick="appendToDisplay('5')">5</button>
-            <button class="btn" onclick="appendToDisplay('6')">6</button>
-            <button class="btn" onclick="appendToDisplay('.')">.</button>
-            <button class="btn" onclick="appendToDisplay('1')">1</button>
-            <button class="btn" onclick="appendToDisplay('2')">2</button>
-            <button class="btn" onclick="appendToDisplay('3')">3</button>
-            <button class="btn equals" onclick="calculate()">=</button>
-            <button class="btn zero" onclick="appendToDisplay('0')">0</button>
+            <!-- Basic Buttons -->
+            <button class="btn operator" data-value="C">C</button>
+            <button class="btn operator" data-value="DEL">DEL</button>
+            <button class="btn operator" data-value="sqrt">√</button>
+            <button class="btn operator" data-value="^">^</button>
+            <button class="btn operator" data-value="(">(</button>
+            <button class="btn operator" data-value=")">)</button>
+            <button class="btn operator" data-value="π">π</button>
+            <button class="btn operator" data-value="e">e</button>
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn operator" data-value="/">/</button>
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn operator" data-value="*">*</button>
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn operator" data-value="-">-</button>
+            <button class="btn" data-value="0">0</button>
+            <button class="btn" data-value=".">.</button>
+            <button class="btn equal" data-value="=">=</button>
+            <button class="btn operator" data-value="+">+</button>
+
+            <!-- Advanced Buttons -->
+            <button class="btn operator" data-value="sin">sin</button>
+            <button class="btn operator" data-value="cos">cos</button>
+            <button class="btn operator" data-value="tan">tan</button>
+            <button class="btn operator" data-value="log">log</button>
+            <button class="btn operator" data-value="ln">ln</button>
+            <button class="btn operator" data-value="!">!</button>
+            <button class="btn operator" data-value="%">%</button>
+            <button class="btn operator" data-value="exp">exp</button>
+            <button class="btn operator" data-value="deg">deg</button>
+            <button class="btn operator" data-value="rad">rad</button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <div class="history">
+        <h3>History</h3>
+        <ul id="history-list"></ul>
+        <button id="clear-history">Clear History</button>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
